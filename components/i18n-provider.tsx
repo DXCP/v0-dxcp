@@ -23,6 +23,22 @@ const translations: Record<Locale, Record<string, string>> = {
       "建立统一、系统化、可持续改进的开发者体验平台，提升研发生产力、交付效率、系统质量与工程师满意度",
     "hero.getStarted": "开始使用",
     "hero.viewDocs": "查看文档",
+    "section.concepts": "核心概念",
+    "section.concepts.desc": "理解开发者体验的完整框架：从理念到组织到社区",
+    "concept.dx.title": "DX / DevEx",
+    "concept.dx.desc":
+      "开发者体验（Developer Experience）是指开发者在使用工具、平台、API和服务时的整体感受和效率。良好的DX能显著提升生产力、降低学习成本、减少摩擦，最终提高工程师满意度和创新速度。",
+    "concept.dx.subtypes.label": "不同范围划分",
+    "concept.dx.subtypes.internal": "内部开发者体验",
+    "concept.dx.subtypes.ecosystem": "开放生态开发者体验",
+    "concept.dx.subtypes.opensource": "开源开发者体验",
+    "concept.dx.subtypes.platform": "平台开发者体验",
+    "concept.dxc.title": "DXC",
+    "concept.dxc.desc":
+      "开发者体验中心（Developer Experience Center）是一个统一的平台和组织，负责构建、维护和优化组织内的开发者工具链、流程和基础设施。DXC通过提供标准化模板、自动化工具和最佳实践，帮助开发团队提高效率和质量。",
+    "concept.dxcp.title": "DXCP",
+    "concept.dxcp.desc":
+      "开发者体验中心计划（Developer Experience Center Program）是一个系统化的倡议和社区，旨在推广DXC理念、分享最佳实践、提供实施指南和建立行业标准。DXCP帮助组织从零开始建立自己的DXC，并持续改进开发者体验。",
     "section.features": "核心能力",
     "section.cases": "成功案例",
     "section.knowledge": "知识库",
@@ -72,6 +88,23 @@ const translations: Record<Locale, Record<string, string>> = {
       "Build a unified, systematic, and continuously improving developer experience platform to enhance R&D productivity, delivery efficiency, system quality, and engineer satisfaction",
     "hero.getStarted": "Get Started",
     "hero.viewDocs": "View Docs",
+    "section.concepts": "Core Concepts",
+    "section.concepts.desc":
+      "Understanding the complete framework of developer experience: from philosophy to organization to community",
+    "concept.dx.title": "DX / DevEx",
+    "concept.dx.desc":
+      "Developer Experience refers to the overall feeling and efficiency developers have when using tools, platforms, APIs, and services. Good DX significantly improves productivity, reduces learning costs, minimizes friction, and ultimately enhances engineer satisfaction and innovation speed.",
+    "concept.dx.subtypes.label": "Scope Categories",
+    "concept.dx.subtypes.internal": "Internal DX",
+    "concept.dx.subtypes.ecosystem": "Ecosystem DX",
+    "concept.dx.subtypes.opensource": "Open Source DX",
+    "concept.dx.subtypes.platform": "Platform DX",
+    "concept.dxc.title": "DXC",
+    "concept.dxc.desc":
+      "Developer Experience Center is a unified platform and organization responsible for building, maintaining, and optimizing the developer toolchain, processes, and infrastructure within an organization. DXC helps development teams improve efficiency and quality by providing standardized templates, automation tools, and best practices.",
+    "concept.dxcp.title": "DXCP",
+    "concept.dxcp.desc":
+      "Developer Experience Center Program is a systematic initiative and community aimed at promoting DXC concepts, sharing best practices, providing implementation guides, and establishing industry standards. DXCP helps organizations build their own DXC from scratch and continuously improve developer experience.",
     "section.features": "Core Capabilities",
     "section.cases": "Success Stories",
     "section.knowledge": "Knowledge Base",

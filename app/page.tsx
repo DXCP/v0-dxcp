@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, BookOpen, Code2, Container, Gauge, GitBranch, Rocket } from "lucide-react"
+import { ArrowRight, BookOpen, Code2, Container, Gauge, GitBranch, Rocket, Target, Users, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
@@ -44,6 +44,27 @@ export default function HomePage() {
     },
   ]
 
+  const concepts = [
+    {
+      icon: Globe,
+      titleKey: "concept.dx.title",
+      descKey: "concept.dx.desc",
+      subtypes: "concept.dx.subtypes",
+    },
+    {
+      icon: Target,
+      titleKey: "concept.dxc.title",
+      descKey: "concept.dxc.desc",
+      highlight: true,
+    },
+    {
+      icon: Users,
+      titleKey: "concept.dxcp.title",
+      descKey: "concept.dxcp.desc",
+      highlight: true,
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
@@ -70,6 +91,51 @@ export default function HomePage() {
                 <Link href="/knowledge">{t("hero.viewDocs")}</Link>
               </Button>
             </div>
+          </div>
+        </section>
+
+        <section className="container py-12 md:py-24 bg-gradient-to-b from-background to-muted/30">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">{t("section.concepts")}</h2>
+            <p className="text-muted-foreground text-balance max-w-2xl mx-auto">{t("section.concepts.desc")}</p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {concepts.map((concept, index) => {
+              const Icon = concept.icon
+              return (
+                <Card
+                  key={index}
+                  className={`border-2 hover:shadow-lg transition-all ${concept.highlight ? "border-primary/50 bg-primary/5" : ""}`}
+                >
+                  <CardHeader>
+                    <div
+                      className={`mb-3 flex h-14 w-14 items-center justify-center rounded-lg ${concept.highlight ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+                    >
+                      <Icon className="h-7 w-7" />
+                    </div>
+                    <CardTitle className="text-xl mb-2">{t(concept.titleKey)}</CardTitle>
+                    <CardDescription className="text-base leading-relaxed">{t(concept.descKey)}</CardDescription>
+                    {concept.subtypes && (
+                      <div className="mt-4 pt-4 border-t">
+                        <p className="text-sm font-medium text-muted-foreground mb-2">
+                          {t("concept.dx.subtypes.label")}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {["internal", "ecosystem", "opensource", "platform"].map((type) => (
+                            <span
+                              key={type}
+                              className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
+                            >
+                              {t(`concept.dx.subtypes.${type}`)}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </CardHeader>
+                </Card>
+              )
+            })}
           </div>
         </section>
 
