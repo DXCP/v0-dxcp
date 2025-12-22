@@ -105,7 +105,7 @@ export default function HomePage() {
               return (
                 <Card
                   key={index}
-                  className={`border-2 hover:shadow-lg transition-all ${concept.highlight ? "border-primary/50 bg-primary/5" : ""}`}
+                  className="border-2 border-border hover:border-primary hover:shadow-lg transition-all duration-300"
                 >
                   <CardHeader>
                     <div
