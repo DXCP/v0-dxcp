@@ -1,12 +1,27 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, BookOpen, Code2, Container, Gauge, GitBranch, Rocket, Target, Users, Globe } from "lucide-react"
+import {
+  ArrowRight,
+  BookOpen,
+  Code2,
+  Container,
+  Gauge,
+  GitBranch,
+  Rocket,
+  Target,
+  Users,
+  Globe,
+  Zap,
+  Brain,
+  Workflow,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { useI18n } from "@/components/i18n-provider"
+import { ScrollProgressNav } from "@/components/scroll-progress-nav"
 
 export default function HomePage() {
   const { t } = useI18n()
@@ -65,13 +80,80 @@ export default function HomePage() {
     },
   ]
 
+  const books = [
+    {
+      titleKey: "books.item1.title",
+      authorKey: "books.item1.author",
+      descKey: "books.item1.desc",
+      url: "https://www.oreilly.com/library/view/the-modern-developer/9781098169701/",
+      image: "/the-modern-developer-experience-book-cover.jpg",
+    },
+    {
+      titleKey: "books.item2.title",
+      authorKey: "books.item2.author",
+      descKey: "books.item2.desc",
+      url: "https://link.springer.com/book/10.1007/979-8-8688-0242-3",
+      image: "/developer-experience-unleashed-book-cover.jpg",
+    },
+    {
+      titleKey: "books.item3.title",
+      authorKey: "books.item3.author",
+      descKey: "books.item3.desc",
+      url: "https://leanpub.com/developerexperience",
+      image: "/developer-experience-by-addy-osmani-book-cover.jpg",
+    },
+    {
+      titleKey: "books.item4.title",
+      authorKey: "books.item4.author",
+      descKey: "books.item4.desc",
+      url: "https://teamtopologies.com/book",
+      image: "/team-topologies-book-cover.jpg",
+    },
+  ]
+
+  const pillars = [
+    {
+      icon: Zap,
+      titleKey: "devex.pillar.feedback.title",
+      descKey: "devex.pillar.feedback.desc",
+    },
+    {
+      icon: Brain,
+      titleKey: "devex.pillar.cognitive.title",
+      descKey: "devex.pillar.cognitive.desc",
+    },
+    {
+      icon: Workflow,
+      titleKey: "devex.pillar.flow.title",
+      descKey: "devex.pillar.flow.desc",
+    },
+  ]
+
+  const navSections = [
+    { id: "hero", label: t("nav.home") },
+    { id: "devex-intro", label: t("section.devex.intro") },
+    { id: "concepts", label: t("section.concepts") },
+    { id: "features", label: t("section.features") },
+    { id: "templates", label: t("section.templates") },
+    { id: "books", label: t("section.books") },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
 
+      <ScrollProgressNav sections={navSections} />
+
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="container py-12 md:py-24 lg:py-32">
+        <section id="hero" className="relative container py-12 md:py-24 lg:py-32 overflow-hidden">
+          {/* Background image with dark mode support */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] dark:bg-[url('/hero-bg-dark.jpg')] bg-cover bg-center bg-no-repeat" />
+            {/* Overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+          </div>
+
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               {t("hero.subtitle")}
@@ -94,7 +176,85 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container py-12 md:py-24 bg-gradient-to-b from-background to-muted/30">
+        {/* DevEx Introduction Section */}
+        <section id="devex-intro" className="container py-12 md:py-24">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">
+                {t("section.devex.intro")}
+              </h2>
+              <p className="text-lg text-muted-foreground text-balance">{t("section.devex.intro.desc")}</p>
+            </div>
+
+            {/* Three Pillars */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-center">{t("devex.pillars.title")}</h3>
+              <div className="grid gap-6 md:grid-cols-3">
+                {pillars.map((pillar, index) => {
+                  const Icon = pillar.icon
+                  return (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center text-center p-6 rounded-lg border-2 border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                        <Icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <h4 className="text-lg font-semibold mb-2">{t(pillar.titleKey)}</h4>
+                      <p className="text-sm text-muted-foreground">{t(pillar.descKey)}</p>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Value Proposition */}
+            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-8">
+              <h3 className="text-2xl font-bold mb-4 text-center">{t("devex.value.title")}</h3>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">{t("devex.value.item1.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{t("devex.value.item1.desc")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">{t("devex.value.item2.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{t("devex.value.item2.desc")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">{t("devex.value.item3.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{t("devex.value.item3.desc")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">{t("devex.value.item4.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{t("devex.value.item4.desc")}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Concepts Section */}
+        <section id="concepts" className="container py-12 md:py-24 bg-gradient-to-b from-background to-muted/30">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">{t("section.concepts")}</h2>
             <p className="text-muted-foreground text-balance max-w-2xl mx-auto">{t("section.concepts.desc")}</p>
@@ -140,7 +300,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section className="container py-12 md:py-24 bg-muted/50">
+        <section id="features" className="container py-12 md:py-24 bg-muted/50">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">{t("section.features")}</h2>
           </div>
@@ -162,8 +322,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="container py-12 md:py-24">
+        {/* CTA Section - Download Templates */}
+        <section id="templates" className="container py-12 md:py-24">
           <div className="rounded-lg border bg-card p-8 md:p-12 text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-balance">{t("section.templates")}</h2>
             <p className="mb-6 text-muted-foreground text-balance">{t("templates.proposal.desc")}</p>
@@ -173,6 +333,34 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+          </div>
+        </section>
+
+        {/* Books Section */}
+        <section id="books" className="container py-12 md:py-24 bg-muted/30">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">{t("section.books")}</h2>
+            <p className="text-muted-foreground text-balance max-w-2xl mx-auto">{t("section.books.desc")}</p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {books.map((book, index) => (
+              <a key={index} href={book.url} target="_blank" rel="noopener noreferrer" className="group flex flex-col">
+                <Card className="flex flex-col h-full border-2 hover:border-primary hover:shadow-lg transition-all duration-300">
+                  <div className="aspect-[2/3] overflow-hidden rounded-t-lg bg-muted">
+                    <img
+                      src={book.image || "/placeholder.svg"}
+                      alt={t(book.titleKey)}
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <CardHeader className="flex-1">
+                    <CardTitle className="text-lg line-clamp-2">{t(book.titleKey)}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{t(book.authorKey)}</p>
+                    <CardDescription className="mt-2 line-clamp-3">{t(book.descKey)}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </a>
+            ))}
           </div>
         </section>
       </main>

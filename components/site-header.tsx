@@ -18,6 +18,7 @@ export function SiteHeader() {
     { key: "nav.home", href: "/" },
     { key: "nav.cases", href: "/cases" },
     { key: "nav.knowledge", href: "/knowledge" },
+    { key: "nav.tools", href: "/tools" },
     { key: "nav.templates", href: "/templates" },
     { key: "nav.about", href: "/about" },
   ]
