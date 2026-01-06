@@ -146,107 +146,110 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="hero" className="relative container py-12 md:py-24 lg:py-32 overflow-hidden">
-          {/* Background image with dark mode support */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] dark:bg-[url('/hero-bg-dark.jpg')] bg-cover bg-center bg-no-repeat" />
-            {/* Overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
-          </div>
+        <div className="absolute inset-0 -z-10 w-full">
+          <div className="absolute inset-0 w-full bg-[url('/hero-bg.jpg')] dark:bg-[url('/hero-bg-dark.jpg')] bg-cover bg-center bg-no-repeat" />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 w-full bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        </div>
+        <section id="hero" className="relative py-12 md:py-24 lg:py-32 overflow-hidden">
+          {/* Background image with dark mode support - full width */}
+          {/* Overlay for better text readability */}
 
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-              {t("hero.subtitle")}
-            </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-              {t("hero.title")}
-            </h1>
-            <p className="mb-8 text-lg text-muted-foreground text-balance md:text-xl">{t("hero.description")}</p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" asChild>
-                <Link href="/templates">
-                  {t("hero.getStarted")}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/knowledge">{t("hero.viewDocs")}</Link>
-              </Button>
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="mb-4 inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                {t("hero.subtitle")}
+              </div>
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
+                {t("hero.title")}
+              </h1>
+              <p className="mb-8 text-lg text-muted-foreground text-balance md:text-xl">{t("hero.description")}</p>
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+                <Button size="lg" asChild>
+                  <Link href="/templates">
+                    {t("hero.getStarted")}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/knowledge">{t("hero.viewDocs")}</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
 
         {/* DevEx Introduction Section */}
-        <section id="devex-intro" className="container py-12 md:py-24">
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">
-                {t("section.devex.intro")}
-              </h2>
-              <p className="text-lg text-muted-foreground text-balance">{t("section.devex.intro.desc")}</p>
-            </div>
+        <section id="devex-intro" className="container py-12 md:py-24 mt-16">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance mb-4">
+              {t("section.devex.intro")}
+            </h2>
+            <p className="text-lg text-muted-foreground text-balance max-w-3xl mx-auto">
+              {t("section.devex.intro.desc")}
+            </p>
+          </div>
 
-            {/* Three Pillars */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-center">{t("devex.pillars.title")}</h3>
-              <div className="grid gap-6 md:grid-cols-3">
-                {pillars.map((pillar, index) => {
-                  const Icon = pillar.icon
-                  return (
-                    <div
-                      key={index}
-                      className="flex flex-col items-center text-center p-6 rounded-lg border-2 border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300"
-                    >
-                      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                        <Icon className="h-8 w-8 text-primary" />
-                      </div>
-                      <h4 className="text-lg font-semibold mb-2">{t(pillar.titleKey)}</h4>
-                      <p className="text-sm text-muted-foreground">{t(pillar.descKey)}</p>
+          {/* Three Pillars */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">{t("devex.pillars.title")}</h3>
+            <div className="grid gap-6 md:grid-cols-3">
+              {pillars.map((pillar, index) => {
+                const Icon = pillar.icon
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-center p-6 rounded-lg border-2 border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300"
+                  >
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                      <Icon className="h-8 w-8 text-primary" />
                     </div>
-                  )
-                })}
-              </div>
+                    <h4 className="text-lg font-semibold mb-2">{t(pillar.titleKey)}</h4>
+                    <p className="text-sm text-muted-foreground">{t(pillar.descKey)}</p>
+                  </div>
+                )
+              })}
             </div>
+          </div>
 
-            {/* Value Proposition */}
-            <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-center">{t("devex.value.title")}</h3>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{t("devex.value.item1.title")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("devex.value.item1.desc")}</p>
-                  </div>
+          {/* Value Proposition */}
+          <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-8">
+            <h3 className="text-2xl font-bold mb-4 text-center">{t("devex.value.title")}</h3>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                  1
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{t("devex.value.item2.title")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("devex.value.item2.desc")}</p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{t("devex.value.item1.title")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("devex.value.item1.desc")}</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{t("devex.value.item3.title")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("devex.value.item3.desc")}</p>
-                  </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                  2
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
-                    4
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{t("devex.value.item4.title")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("devex.value.item4.desc")}</p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{t("devex.value.item2.title")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("devex.value.item2.desc")}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{t("devex.value.item3.title")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("devex.value.item3.desc")}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                  4
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{t("devex.value.item4.title")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("devex.value.item4.desc")}</p>
                 </div>
               </div>
             </div>
