@@ -28,7 +28,7 @@ export default function TemplatesPage() {
   const handleDownload = (filename: string) => {
     // In a real implementation, this would download the actual file
     // For now, we'll create a link to the GitHub repo
-    window.open(`https://github.com/DXCP/website/tree/main/templates/${filename}`, "_blank")
+    window.open(`https://github.com/DXCP/community/tree/main/templates/${filename}`, "_blank")
   }
 
   return (
@@ -80,7 +80,7 @@ export default function TemplatesPage() {
             </CardHeader>
             <CardContent>
               <Button variant="outline" asChild>
-                <a href="https://github.com/DXCP/website" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/DXCP/community" target="_blank" rel="noopener noreferrer">
                   {locale === "zh" ? "在 GitHub 上贡献" : "Contribute on GitHub"}
                 </a>
               </Button>
