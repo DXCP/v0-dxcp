@@ -24,6 +24,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "建立统一、系统化、可持续改进的开发者体验平台，提升研发生产力、交付效率、系统质量与工程师满意度",
     "hero.getStarted": "开始使用",
     "hero.viewDocs": "查看文档",
+    "hero.contact": "我要咨询",
     "section.concepts": "核心概念",
     "section.concepts.desc": "理解开发者体验的完整框架：从理念到组织到社区",
     "section.devex.intro": "什么是开发者体验？",
@@ -108,6 +109,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.github": "GitHub",
     "footer.community": "社区",
     "footer.docs": "文档",
+    "footer.contact": "联系我们",
     "footer.copyright": "© 2025 DXCP. 保留所有权利。",
     "tools.title": "常用工具与度量框架",
     "tools.description": "探索业界领先的开发者体验度量框架和自测工具，帮助您评估和改进团队的开发效能",
@@ -180,49 +182,7 @@ const translations: Record<Locale, Record<string, string>> = {
       "Build a unified, systematic, and continuously improving developer experience platform to enhance R&D productivity, delivery efficiency, system quality, and engineer satisfaction",
     "hero.getStarted": "Get Started",
     "hero.viewDocs": "View Docs",
-    "section.concepts": "Core Concepts",
-    "section.concepts.desc":
-      "Understanding the complete framework of developer experience: from philosophy to organization to community",
-    "section.devex.intro": "What is Developer Experience?",
-    "section.devex.intro.desc":
-      "Developer Experience (DX) refers to the overall feeling and efficiency developers have when interacting with tools, platforms, processes, and teams throughout the software development lifecycle. Excellent developer experience eliminates friction, boosts productivity, and sparks innovation.",
-    "devex.pillars.title": "Three Pillars of Developer Experience",
-    "devex.pillar.feedback.title": "Feedback Loops",
-    "devex.pillar.feedback.desc":
-      "Fast, clear feedback mechanisms enable developers to identify and fix issues promptly, reducing the time from coding to validation",
-    "devex.pillar.cognitive.title": "Cognitive Load",
-    "devex.pillar.cognitive.desc":
-      "Reduce developers' mental burden by simplifying tools, unifying processes, and providing clear documentation, allowing them to focus on creating value",
-    "devex.pillar.flow.title": "Flow State",
-    "devex.pillar.flow.desc":
-      "Eliminate distractions and obstacles, enabling developers to maintain focused and efficient work states for extended periods",
-    "devex.value.title": "Core Value of Developer Experience",
-    "devex.value.item1.title": "Enhance R&D Efficiency",
-    "devex.value.item1.desc":
-      "Optimize toolchains and processes to significantly improve developer productivity and code quality",
-    "devex.value.item2.title": "Accelerate Product Delivery",
-    "devex.value.item2.desc":
-      "Shorten the time from idea to production, rapidly responding to market demands and user feedback",
-    "devex.value.item3.title": "Increase Engineer Satisfaction",
-    "devex.value.item3.desc":
-      "Create delightful work experiences, strengthen team cohesion, and reduce talent attrition",
-    "devex.value.item4.title": "Foster Technical Innovation",
-    "devex.value.item4.desc":
-      "Unleash developer creativity, encourage experimentation and innovation, and drive technological evolution",
-    "concept.dx.title": "DX / DevEx",
-    "concept.dx.desc":
-      "Developer Experience refers to the overall feeling and efficiency developers have when using tools, platforms, APIs, and services. Good DX significantly improves productivity, reduces learning costs, minimizes friction, and ultimately enhances engineer satisfaction and innovation speed.",
-    "concept.dx.subtypes.label": "Scope Categories",
-    "concept.dx.subtypes.internal": "Internal DX",
-    "concept.dx.subtypes.ecosystem": "Ecosystem DX",
-    "concept.dx.subtypes.opensource": "Open Source DX",
-    "concept.dx.subtypes.platform": "Platform DX",
-    "concept.dxc.title": "DXC",
-    "concept.dxc.desc":
-      "Developer Experience Center is a unified platform and organization responsible for building, maintaining, and optimizing the developer toolchain, processes, and infrastructure within an organization. DXC helps development teams improve efficiency and quality by providing standardized templates, automation tools, and best practices.",
-    "concept.dxcp.title": "DXCP",
-    "concept.dxcp.desc":
-      "Developer Experience Center Program is a systematic initiative and community aimed at promoting DXC concepts, sharing best practices, providing implementation guides, and establishing industry standards. DXCP helps organizations build their own DXC from scratch and continuously improve developer experience.",
+    "hero.contact": "Contact Us",
     "section.features": "Core Capabilities",
     "section.cases": "Success Stories",
     "section.knowledge": "Knowledge Base",
@@ -278,6 +238,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.github": "GitHub",
     "footer.community": "Community",
     "footer.docs": "Documentation",
+    "footer.contact": "Contact",
     "footer.copyright": "© 2025 DXCP. All rights reserved.",
     "tools.title": "Tools & Metrics Frameworks",
     "tools.description":

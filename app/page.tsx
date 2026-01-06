@@ -15,6 +15,7 @@ import {
   Zap,
   Brain,
   Workflow,
+  Mail,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -178,6 +179,12 @@ export default function HomePage() {
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/knowledge">{t("hero.viewDocs")}</Link>
+                </Button>
+                <Button size="lg" variant="secondary" asChild>
+                  <a href="mailto:mail@dxcp.org">
+                    <Mail className="mr-2 h-4 w-4" />
+                    {t("hero.contact")}
+                  </a>
                 </Button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github } from "lucide-react"
+import { Github, Mail } from "lucide-react"
 import { useI18n } from "@/components/i18n-provider"
 
 export function SiteFooter() {
@@ -37,6 +37,20 @@ export function SiteFooter() {
                 <Link href="/knowledge" className="hover:text-primary transition-colors">
                   {t("nav.knowledge")}
                 </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-3">{t("footer.contact")}</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>
+                <a
+                  href="mailto:mail@dxcp.org"
+                  className="hover:text-primary transition-colors inline-flex items-center gap-2"
+                >
+                  <Mail className="h-4 w-4" />
+                  mail@dxcp.org
+                </a>
               </li>
             </ul>
           </div>
