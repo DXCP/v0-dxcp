@@ -146,14 +146,19 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <div className="absolute inset-0 -z-10 w-full">
-          <div className="absolute inset-0 w-full bg-[url('/hero-bg.jpg')] dark:bg-[url('/hero-bg-dark.jpg')] bg-cover bg-center bg-no-repeat" />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 w-full bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
-        </div>
         <section id="hero" className="relative py-12 md:py-24 lg:py-32 overflow-hidden">
-          {/* Background image with dark mode support - full width */}
+          {/* Light mode background */}
+          <div
+            className="absolute inset-0 -z-20 w-full bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-0 transition-opacity duration-300"
+            style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+          />
+          {/* Dark mode background */}
+          <div
+            className="absolute inset-0 -z-20 w-full bg-cover bg-center bg-no-repeat opacity-0 dark:opacity-100 transition-opacity duration-300"
+            style={{ backgroundImage: "url('/hero-bg-dark.jpg')" }}
+          />
           {/* Overlay for better text readability */}
+          <div className="absolute inset-0 -z-10 w-full bg-gradient-to-b from-background/90 via-background/80 to-background" />
 
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">

@@ -16,34 +16,33 @@ export function ScrollProgressNav({ sections }: ScrollProgressNavProps) {
   const [activeSection, setActiveSection] = React.useState<string>(sections[0]?.id || "")
 
   React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      {
-        rootMargin: "-50% 0px -50% 0px",
-        threshold: 0,
-      },
-    )
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id)
-      if (element) {
-        observer.observe(element)
-      }
-    })
+      // Find the current section based on scroll position
+      let currentSection = sections[0]?.id || ""
 
-    return () => {
-      sections.forEach((section) => {
+      for (const section of sections) {
         const element = document.getElementById(section.id)
         if (element) {
-          observer.unobserve(element)
+          const { offsetTop } = element
+          if (scrollPosition >= offsetTop) {
+            currentSection = section.id
+          }
         }
-      })
+      }
+
+      setActiveSection(currentSection)
+    }
+
+    // Initial check
+    handleScroll()
+
+    // Add scroll listener with passive flag for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
     }
   }, [sections])
 
