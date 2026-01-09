@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { I18nProvider } from "@/components/i18n-provider"
@@ -39,6 +40,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh" suppressHydrationWarning>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-6LZSQQ8WXB" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6LZSQQ8WXB');
+          `}
+        </Script>
+      </head>
       <body className={`font-sans antialiased`}>
         <ThemeProvider>
           <I18nProvider>{children}</I18nProvider>
